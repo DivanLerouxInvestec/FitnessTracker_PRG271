@@ -1,0 +1,28 @@
+# Visual Studio files
+.vs/
+*.sln
+*.user
+*.userprefs
+*.suo
+*.csproj
+*.dll
+*.exe
+*.pdb
+*.mdb
+*.dbmdl
+*.dbproj
+*.jfm
+*.jfm
+*.jfm
+*.cache
+*.log
+*.tlog
+*.vscode/
+.vscode/
+
+# Build results
+[Bb]in/
+[Oo]bj/
+
+# Rider
+.idea/
