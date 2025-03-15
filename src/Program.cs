@@ -1,11 +1,5 @@
-﻿using FitnessTracker_PRG271.Classes;
-using FitnessTracker_PRG271.Services;
+﻿using FitnessTracker_PRG271.Services;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading;
-using System.Threading.Tasks;
 
 namespace FitnessTracker_PRG271
 {
@@ -20,33 +14,54 @@ namespace FitnessTracker_PRG271
             int choice;
             do
             {
-                Console.WriteLine("==========================");
-                Console.WriteLine("==========================");
+                Console.WriteLine("");
+                Console.WriteLine("==============================================================================");
+                Console.WriteLine("==============================================================================");
                 Console.WriteLine("");
 
                 fitnessTracker.ShowMenu();
-                Console.Write("Choose an option: ");
-                choice = int.Parse(Console.ReadLine());
+                choice = GetValidInteger("Choose an option: ");
 
                 switch (choice)
                 {
                     case 1:
+                        Console.WriteLine("");
                         fitnessTracker.LogWorkout();
                         break;
                     case 2:
+                        Console.WriteLine("");
                         fitnessTracker.LogMeal();
                         break;
                     case 3:
+                        Console.WriteLine("");
                         fitnessTracker.ViewProgress();
                         break;
                     case 4:
+                        Console.WriteLine("");
                         Console.WriteLine("Exiting the application. Stay healthy!");
+                        Console.ReadLine();
                         break;
                     default:
+                        Console.WriteLine("");
                         Console.WriteLine("Invalid choice! Please select again.");
                         break;
                 }
             } while (choice != 4);
+        }
+
+        static int GetValidInteger(string prompt)
+        {
+            int result;
+            while (true)
+            {
+                Console.Write(prompt);
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out result))
+                {
+                    return result;
+                }
+                Console.WriteLine("Invalid input. Please enter a valid integer.");
+            }
         }
     }
 }
